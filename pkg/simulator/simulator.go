@@ -155,6 +155,10 @@ func New(opts ...Option) (Interface, error) {
 		simontype.FGDScorePluginName: func(configuration runtime.Object, handle framework.Handle) (framework.Plugin, error) {
 			return simonplugin.NewFGDScorePlugin(configuration, handle, &sim.typicalPods)
 		},
+		// TODO: New plugin here
+		simontype.DummyScorePluginName: func(configuration runtime.Object, handle framework.Handle) (framework.Plugin, error) {
+			return simonplugin.NewDummyPlugin(configuration, handle)
+		},
 	}
 	sim.scheduler, err = scheduler.New(
 		sim.client,
@@ -840,6 +844,7 @@ func (sim *Simulator) SetWorkloadPods(pods []*corev1.Pod) {
 	})
 }
 
+// SortClusterPods Shuffle or sort them by creation time
 func (sim *Simulator) SortClusterPods(pods []*corev1.Pod) {
 	var err error
 	shufflePod := sim.customConfig.ShufflePod

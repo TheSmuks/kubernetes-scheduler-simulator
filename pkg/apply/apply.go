@@ -88,6 +88,7 @@ func (applier *Applier) Run() (err error) {
 		resourceList []string
 		content      []string
 	)
+	// TODO: What are resources?
 	resourceMap = make(map[string]simulator.ResourceTypes)
 
 	// convert the application files into the kubernetes objects and generate a ResourceTypes struct, then make a resource list

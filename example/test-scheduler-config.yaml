@@ -24,7 +24,7 @@ profiles:
           - name: NodeResourcesLeastAllocated
           - name: NodePreferAvoidPods
         enabled:
-          - name: FGDScore
+          - name: DummyScore
             weight: 1000
       reserve:
         enabled:
@@ -35,7 +35,7 @@ profiles:
         enabled:
           - name: Simon
     pluginConfig:
-      - name: FGDScore
+      - name: DummyScore
         args:
           dimExtMethod: share
           normMethod: max
@@ -43,4 +43,4 @@ profiles:
         args:
           dimExtMethod: share
           normMethod: max
-          gpuSelMethod: FGDScore
+          gpuSelMethod: best

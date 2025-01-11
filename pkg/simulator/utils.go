@@ -254,6 +254,10 @@ func GetAndSetSchedulerConfig(schedulerConfig string) (*config.CompletedConfig, 
 			{
 				Name: simontype.FGDScorePluginName,
 			},
+			// TODO: Added custom plugin
+			{
+				Name: simontype.DummyScorePluginName,
+			},
 		},
 	}
 	kcfg.Profiles[0].Plugins.Filter = &kubeschedulerconfig.PluginSet{
